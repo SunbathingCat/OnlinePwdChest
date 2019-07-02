@@ -255,9 +255,7 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-@app.before_request
-def pp():
-    print(os.path.join(app.root_path, 'static'))
+
 
 if __name__ == '__main__':
     # app.run(host="0.0.0.0", port=80, debug = True)
