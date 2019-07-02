@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-han">
+<head>
+    <meta charset="UTF-8">
+    <title>添加新密码</title>
+</head>
+<body>
+    <form method="post" action='/addpwd'>
+        <label>密码名：<input type="text" name="pwdname" value=""></label></br>
+        <label>账户：<input type="text" name="account" value=""></label></br>
+        <label>密码：<input type="text" name="pwd" value=""></label></br>
+        <label>其他：<textarea name="other">备注</textarea></label></br>
+        <input type="submit" value="添加">
+    </form>
+
+    {% if error %}
+        <p>{{error}}</p>
+    {% endif %}
+</body>
+</html>

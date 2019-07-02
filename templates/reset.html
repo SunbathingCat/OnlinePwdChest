@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-han">
+<head>
+    <meta charset="UTF-8">
+    <title>密码信息修改</title>
+</head>
+<body>
+
+<form method="post" action='/set/{{pwds.id}}'>
+        <p>原密码名：{{pwds.pwdname}}</p>
+        <label>新密码名：<input type="text" name="pwdname" value={{pwds.pwdname}}></label></br>
+        <p>原账户：{{pwds.account}}</p>
+        <label>新账户：<input type="text" name="account" value={{pwds.account}}></label></br>
+        <p>原密码：{{pwds.pwd}}</p>
+        <label>新密码：<input type="text" name="pwd" value={{pwds.pwd}}></label></br>
+        <p>原备注：{{pwds.other}}</p>
+        <label>新备注：<textarea name="other">{{pwds.other}}</textarea></label></br>
+        <input type="submit" value="提交">
+</form>
+<a href="{{ url_for('delete',pwdid=pwds.id) }}">删除此条密码</a>
+    {% if error %}
+        <p>{{error}}</p>
+    {% endif %}
+
+</body>
+</html>

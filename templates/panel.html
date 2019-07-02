@@ -1,0 +1,25 @@
+<!-- templates/panel.html -->
+
+<!DOCTYPE html>
+<html lang="zh-han">
+    <head>
+        <title>个人中心</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h3>个人中心</h3>
+        <p>姓名：{{user.username}}</p>
+        <p>密码：{{user.password}}</p>
+        <p>邮箱：{{user.email}}</p>
+        <p><a href="{{ url_for('setuser',userid=user.id) }}">修改个人信息</a> </p>
+        <p>名称  账户  密码  备注</p>
+    {% for p in pwds %}
+    <p>{{p.pwdname}} {{p.account}} {{p.pwd}} {{p.other}} <a href="{{ url_for('setting',pwdid=p.id) }}">修改</a></p>
+    {% endfor %}
+    <p>其他操作：<a href="{{ url_for('addpwd') }}">添加密码</a> </p>
+
+    {% if error %}
+        <p>{{error}}</p>
+    {% endif %}
+    </body>
+</html>

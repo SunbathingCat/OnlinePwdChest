@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-han">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息设置</title>
+</head>
+<body>
+<form method="post" action='/setuser/{{user.id}}'>
+        <p>原密码：{{user.password}}</p>
+        <label>新密码：<input type="text" name="password" value={{user.password}}></label></br>
+        <p>原邮箱：{{user.email}}</p>
+        <label>新邮箱：<input type="text" name="email" value={{user.email}}></label></br>
+        <input type="submit" value="提交">
+</form>
+<a href="{{ url_for('deleteuser',userid=user.id) }}">注销账号</a>
+    {% if error %}
+        <p>{{error}}</p>
+    {% endif %}
+</body>
+</html>
